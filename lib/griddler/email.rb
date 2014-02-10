@@ -68,9 +68,9 @@ module Griddler
     end
 
     def text_or_sanitized_html
-      if params.key? :text
+      if params.key? :text && params[:text].present?
         clean_text(params[:text])
-      elsif params.key? :html
+      elsif params.key? :html && params[:html].present?
         clean_html(params[:html])
       end
     end
