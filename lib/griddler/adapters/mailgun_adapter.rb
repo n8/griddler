@@ -39,7 +39,7 @@ module Griddler
       end
 
       def extract_header_cc
-        header = params['message-headers'].select{|h|
+        header = JSON.parse(params['message-headers']).select{|h|
           h.first == 'Cc'
         }.first
         header.to_a.last
